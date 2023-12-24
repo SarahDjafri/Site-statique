@@ -1,0 +1,655 @@
+/* ---GENERAL--- */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 64px;
+  color: #3d3f3f;
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 54px;
+  color: #3d3f3f;
+}
+h3 {
+  font-size: 24px;
+  line-height: 40px;
+  color: #3d3f3f;
+}
+
+h4 {
+  font-size: 20px;
+  color: #3d3f3f;
+}
+
+p {
+  font-size: 15px;
+  line-height: 30px;
+  color: #465b52;
+  margin: 15px 0 20px 0;
+}
+
+/* ---HEADER--- */
+
+.logo {
+  max-width: 100px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #182c64;
+  padding: 20px 50px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+  z-index: 999; /* Tant que cette valeur est grande la barre va rester au premier plan */
+  position: sticky; /* Mixe entre postition relative et static, on veut fixer la barre de nav*/
+  top: 0;
+  left: 0;
+}
+
+#topmenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#topmenu > li {
+  list-style: none;
+  padding: 0 10px;
+}
+
+#topmenu > li::after /* sélecteur de pseudo-élément qui permet d'insérer du contenur après le contenu réel d'un élément */ {
+  content: ""; /* Ajout du contenu vide après chaque élément <li> */
+  width: 0%;
+  height: 2px;
+  background-color: skyblue;
+  display: block; /* Force le pseudo-élément à être affiché comme un bloc */
+  margin-left: 0px;
+  transition: 0.6s;
+}
+
+#topmenu > li:hover::after {
+  width: 60%;
+}
+
+#topmenu > li > a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/*--- MAIN ---*/
+
+.wallpaper {
+  background-image: url("../images/header.jpg");
+  height: 90vh; /* unité de mesure 1vh représente 1% de la hauteur totale de la fenêtre d'affichage "viewport"   */
+  width: 100%;
+  background-size: cover;
+  padding: 0 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.wallpaper > h1 {
+  color: white;
+  padding-bottom: 15px;
+}
+
+.wallpaper > h3 {
+  color: white;
+  padding-bottom: 10px;
+}
+
+.btn {
+  color: white;
+  text-decoration: none;
+  display: inline-block; /* permet affiché en ligne et en block */
+  border: 1px solid #fff;
+  padding: 12px 34px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  margin: 30px 0px;
+}
+
+.btn:hover {
+  border: 1px solid #fe725f;
+  background-color: #fe725f;
+  transition: 0.6s;
+}
+
+/* ---FORMATION --- */
+
+.formation {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.row {
+  display: flex;
+  margin-top: 5%;
+  justify-content: space-between;
+}
+
+.formation-col {
+  flex-basis: 30%; /* Détermine la taille de la boite du contenu */
+  background-color: #f6faff;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  box-sizing: border-box;
+  transition: 0.4s;
+  position: relative;
+}
+
+.formation-col > img {
+  width: 100%;
+  max-height: 150px;
+  border-radius: 10px;
+}
+
+.formation-col > h3 {
+  text-align: center;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #182c64;
+}
+
+.formation-col > p {
+  padding: 10px 20px;
+}
+
+.formation-col:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+}
+
+.btn-formation {
+  display: inline-block;
+  text-decoration: none;
+  color: #182c64;
+  border: 1px solid #182c64;
+  padding: 12px 34px;
+  font-size: 16px;
+  text-transform: uppercase;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  margin: 10px 0 20px 2;
+  font-weight: 600;
+}
+
+.btn-formation:hover {
+  border: 1px solid #182c64;
+  color: white;
+  background-color: #182c64;
+  transition: 0.5s;
+}
+
+.price {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #f98305;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 650;
+  position: absolute;
+  right: 9px;
+  top: 110px;
+}
+
+.star {
+  color: #f98305;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* --- A PROPOS DE MOI ---*/
+
+.aboutme {
+  min-height: 80vh;
+  width: 100%;
+  background-image: linear-gradient(
+      rgba(4, 52, 112, 0.9),
+      rgba(4, 52, 112, 0.9)
+    ),
+    /* Mets un masque sur mon img avec la couleur choisi */
+      url("/images/about.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 50px 0 0;
+}
+.aboutme > div {
+  width: 60%;
+}
+
+.aboutme > div > h1,
+h3 {
+  color: white;
+  padding-bottom: 10px;
+}
+
+.aboutme > div > p {
+  color: white;
+  padding-bottom: 10px;
+}
+
+/* --- SERVICE --- */
+
+.container-service {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  background-color: #e5eaec;
+  padding-top: 80px;
+}
+
+#service {
+  width: 70%;
+  margin: auto;
+}
+
+.row-service {
+  display: flex;
+  justify-content: space-between;
+}
+
+.service-col {
+  display: flex;
+  background-color: #fff;
+  margin-bottom: 5%;
+  padding: 30px;
+  text-align: left;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  flex-basis: 45%;
+}
+
+.service-col > img {
+  height: 40px;
+  margin-left: 5px;
+  margin-right: 24px;
+}
+
+/* --- FORMATEUR --- */
+
+.formateur {
+  background-image: linear-gradient(
+      rgba(4, 41, 117, 0.6),
+      rgba(4, 41, 117, 0.6)
+    ),
+    url(/images/banner.jpg);
+  height: 90vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-bloc > p {
+  color: white;
+}
+
+.text-bloc > h1 {
+  color: white;
+}
+.text-bloc {
+  width: 70%;
+  text-align: center;
+}
+
+.btn-formateur {
+  color: white;
+  background-color: #f98305;
+  border: none;
+  border-radius: 7px;
+  padding: 12px 34px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  height: 3.5em;
+  cursor: pointer;
+}
+
+.btn-formateur:hover {
+  background-color: #09c7fa;
+  transition: 0.5;
+}
+
+/* --- AVIS ---*/
+
+.container-avis {
+  width: 70%;
+  margin: auto;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.container-avis h1 {
+  margin-bottom: 30px;
+}
+
+.row-avis {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col-avis {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30%;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  margin-bottom: 5%;
+  text-align: left;
+  background-color: white;
+  padding: 30px;
+}
+
+.col-avis > img {
+  height: 40px;
+  width: 40px;
+  margin: auto;
+}
+
+.col-avis > h4 {
+  margin: 20px;
+}
+
+/* --- NEWSLETTER  --- */
+
+#newsletter {
+  background-color: #1b2148;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 50px 120px;
+}
+
+#newsletter > h3 {
+  font-size: 32px;
+  color: #09c7fa;
+}
+
+.text > p {
+  font-size: 18px;
+  color: white;
+}
+
+.form-newsletter {
+  display: flex;
+  width: 36%;
+}
+
+.form-newsletter > input {
+  height: 3.5em;
+  padding: 0px 1.4em;
+  font-size: 14px;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.inputbtn {
+  background-color: #09c7fa;
+  color: white;
+  text-decoration: none;
+  height: 3.5em;
+  padding: 0px 1.4em;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.inputbtn:hover {
+  background-color: #f9725f;
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+/* --- CONTACT --- */
+
+.contact-form {
+  width: 100%;
+  margin: auto;
+  background-image: url(/images/datascience.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.form {
+  width: 50%;
+  background-color: #f0f1f3;
+  margin: 70px auto;
+  padding: 50px;
+  border-radius: 10px;
+}
+
+.form > h4 {
+  color: #4a4948;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  line-height: 30px;
+}
+
+.form > p {
+  color: #4a4948;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+.row-form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.row-form > input {
+  width: 48px;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 3px;
+  border: none;
+  background-color: white;
+  color: #4a4948;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  /* outline: none; Permet d'enlever les bordures  */
+}
+
+.row-col-form input,
+.row-col-form textarea {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 3px;
+  border: none;
+  background-color: #fff;
+  color: #4a4948;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+
+.row-col-form > button {
+  width: 100%;
+  font-size: 20px;
+  padding: 12px 20px;
+  background-color: #1b2148;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.row-col-form > button:hover {
+  background-color: #1f7df5;
+  transition: 0.6s;
+}
+
+/* --- FOOTER --- */
+
+footer {
+  margin: 35px 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.colonne {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.colonne h3 {
+  color: #4a4948;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.colonne h4 {
+  color: #4a4948;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.contact-infos-detail p {
+  line-height: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #bbb8b7;
+}
+
+footer p {
+  font-size: 14px;
+  margin: 0 0 10px 0;
+}
+
+.colonne a {
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #3d3f3f;
+}
+
+.colonne a:hover {
+  color: #0858f9;
+}
+
+.copyright {
+  width: 100%;
+  text-align: center;
+}
+
+.contact-infos-detail div {
+  display: flex;
+}
+
+.fa-location-dot {
+  font-size: 16px;
+  line-height: 20px;
+  color: #053292;
+  margin-right: 20px;
+}
+
+.fa-phone {
+  font-size: 16px;
+  line-height: 20px;
+  color: #053292;
+  margin-right: 20px;
+}
+
+.fa-envelope {
+  font-size: 16px;
+  line-height: 20px;
+  color: #053292;
+  margin-right: 20px;
+}
+
+/* Appareils Mobiles */
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  header {
+    padding: 15px 20px;
+  }
+
+  .wallpaper {
+    padding: 0 20px;
+  }
+
+  .formation {
+    padding-top: 40px;
+  }
+
+  .formation-col {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+  }
+
+  .aboutme,
+  .formateur,
+  .container-service,
+  .container-avis,
+  #newsletter,
+  .contact-form {
+    padding: 40px 20px;
+  }
+
+  .text-bloc,
+  .form {
+    width: 100%;
+  }
+
+  .form > h4 {
+    font-size: 20px;
+  }
+
+  footer {
+    margin: 20px;
+  }
+}
